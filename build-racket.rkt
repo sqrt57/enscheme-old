@@ -1,12 +1,13 @@
-#lang scheme
-#;(import (scheme base)
-        (scheme file)
-        (scheme write))
-; (import (util byte-record))
+#lang racket
 (require "src/util/byte-record.scm")
+(require macro-debugger/expand)
 
-; ; (define exename "build/a.exe")
-; ; (write-pecoff-file exename)
+(expand-only #'(define-byte-record <compl>
+                 compl
+                 compl?
+                 (re u8 0 re set-re!)
+                 (im u8 3 im set-im!))
+             (list #'define-byte-record #'define-byte-record-collect))
 
 (define-byte-record <compl>
   compl
