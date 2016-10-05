@@ -1,4 +1,7 @@
 /build/
 /x86-scheme/
 /local/
+*~
+*.bak
+drracket/
 
